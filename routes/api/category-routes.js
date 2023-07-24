@@ -18,14 +18,30 @@ router.get('/', async (req, res) => {
       res.json(categoryData);
     })
     .catch((err) => {
-      res.status(400).json(err);
+      res.status(500).json(err);
     });
 });
 
-
 router.get('/:id', (req, res) => {
-  // find one category by its `id` value
-  // be sure to include its associated Products
+// finds one category by its `id` value including its associated Products
+Category.findOne({
+  where: {
+    id: req.params.id,
+  },
+  attributes: ["id", "category_name"],
+  include: [
+    {
+      model: Product,
+      attributes: ["id", "product_name", "price", "stock", "category_id"],
+    },
+  ],
+})
+  .then((data) => {
+    res.json(data);
+  })
+  .catch((err) => {
+    res.status(500).json(err);
+  });
 });
 
 router.post('/', (req, res) => {
