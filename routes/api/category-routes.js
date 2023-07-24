@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
       },
     ],
   })
-    .then((data) => {
+    .then((categoryData) => {
       res.json(categoryData);
     })
     .catch((err) => {
