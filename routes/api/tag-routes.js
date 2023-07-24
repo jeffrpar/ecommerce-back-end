@@ -8,9 +8,9 @@ router.get('/', (req, res) => {
   Tag.findAll({
     attributes: ["id", "tag_name"],
     include: [{
-        model: Product,
-        attributes: ["id", "product_name", "price", "stock", "category_id"],
-      }]
+      model: Product,
+      attributes: ["id", "product_name", "price", "stock", "category_id"],
+    }]
   })
     .then((data) => {
       res.json(data);
@@ -28,9 +28,9 @@ router.get('/:id', (req, res) => {
     },
     attributes: ["id", "tag_name"],
     include: [{
-        model: Product,
-        attributes: ["id", "product_name", "price", "stock", "category_id"],
-      }],
+      model: Product,
+      attributes: ["id", "product_name", "price", "stock", "category_id"],
+    }],
   })
     .then((data) => {
       res.json(data);
@@ -42,6 +42,13 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new tag
+  Tag.create({ tag_name: req.body.tag_name })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
 });
 
 router.put('/:id', (req, res) => {
