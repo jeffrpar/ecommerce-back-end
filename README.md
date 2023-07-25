@@ -18,7 +18,7 @@ Navigate to the directory where the repository has been saved.
 
 Use 'npm i' to install dependencies.
 
-update the env.EXAMPLE file with your MySQL password.
+update the env.EXAMPLE file with your MySQL password, then delete '.EXAMPLE' from the file name.
 
 Log in to MySQL in the terminal by entering 'mysql -u root -p' which will prompt you for your MySQL password.
 
