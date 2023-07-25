@@ -4,6 +4,10 @@
 
 This project uses MySQL and Sequelize to create the back end of an e-commerce site. This can be used to show information about products and track inventory.
 
+## Project Demonstration Video
+
+https://drive.google.com/file/d/1WT8P7xRiGjuQwozGarHCyLgRHJPDqGlr/view
+
 ## Installation
 
 This project requires MySQL for data management and Insomnia for testing.
